@@ -1,1 +1,1 @@
-# message-automator
+# message-automation
