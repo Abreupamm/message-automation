@@ -51,7 +51,7 @@ def send_message(message, number):
 
 
 def main():
-    contacts_list = import_data('src/lista-de-clentes.csv')
+    contacts_list = import_data('src/lista-de-clientes.csv')
 
     mesage = entry_message.get("1.0", tk.END)
     driver.get('https://web.whatsapp.com/')
