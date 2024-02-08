@@ -1,3 +1,4 @@
 .venv
 geckodriver.log
-aqr.csv
+lista-de-clientes.csv
+test.py
