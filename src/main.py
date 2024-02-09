@@ -13,7 +13,7 @@ from tkinter import filedialog
 service = FirefoxService(GeckoDriverManager().install())
 driver = webdriver.Firefox(service=service)
 
-def format_number(n):
+def format_number(n: str) -> str:
     number_formatted = f"+55 {n[:2]} {n[2:7]}-{n[7:]}"
 
     return number_formatted
@@ -26,7 +26,7 @@ def import_data(path: str):
     else:
         raise ValueError('Arquivo inválido')
 
-def save_number(number):
+def save_number(number: str):
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, f"//a[text()='{number}']")))
     link_number = driver.find_element(By.XPATH, f"//a[text()='{number}']")
     link_number.click()
@@ -36,7 +36,7 @@ def save_number(number):
     button_link_number = driver.find_element(By.XPATH, f"//span[text()='{number_formatted}']")
     button_link_number.click()
 
-def send_message(message, number):
+def send_message(message: str, number: bool | None):
     WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.CLASS_NAME, '_3Uu1_')))
     time.sleep(1)
     input_mensage = driver.find_elements(By.CLASS_NAME, '_3Uu1_')[0]
@@ -50,7 +50,7 @@ def send_message(message, number):
     button_element.click()
 
 
-def main():
+def main() -> None:
     contacts_list = import_data('src/lista-de-clientes.csv')
 
     mesage = entry_message.get("1.0", tk.END)
